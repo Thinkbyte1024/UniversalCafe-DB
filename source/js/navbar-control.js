@@ -1,24 +1,26 @@
+// File untuk melakukan event menu navigasi
+
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Get all "navbar-burger" elements
+    // Mengambil seluruh element bernama "navbar-burger"
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-    // Check if there are any navbar burgers
+    // Periksa jika ada tombol "navbar burger"
     if ($navbarBurgers.length > 0) {
 
-        // Add a click event on each of them
+        // Tambahkan masing-masing event click padanya
         $navbarBurgers.forEach( el => {
             el.addEventListener('click', () => {
 
-                // Get the target from the "data-target" attribute
+                // Ambil target melalui atribut "data-target"
                 const target = el.dataset.target;
                 const $target = document.getElementById(target);
 
-                // Get button from class inside data-target and toggle it
+                // Ambil tombol melalui nama kelas didalam "data-target" dan alihkan
                 const btn_target = document.getElementById(target).getElementsByClassName("button")[0];
                 btn_target.classList.toggle('is-fullwidth');
 
-                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                // Alihkan dengan kelas "is-active" pada kelas "navbar-burger" dan "navbar-menu"
                 el.classList.toggle('is-active');
                 $target.classList.toggle('is-active');
 
