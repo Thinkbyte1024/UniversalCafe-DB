@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  webpage:
+    depends_on:
+      - database
+    build: .
+    ports:
+      - "80:80"
+
+  database:
+    image: postgres
+    restart: always
+    volumes:
+      - ./db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: cafe-adm
+      POSTGRES_PASSWORD: 0per4tor-DB
+      POSTGRES_DB: cafedb
+    ports:
+      - "9921:5432"
+
+# Digunakan untuk mengatur database melalui browser. Hilangkan comment dibawah ini untuk memakai mesin ini
+#  adminer:
+#    image: adminer
+#    restart: always
+#    ports:
+#      - "8080:8080"
